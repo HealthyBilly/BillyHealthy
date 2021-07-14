@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
-import Styles from "./SharedComponents.jsx";
-import Navbar from "./Navigation/Navbar.jsx";
+import React, { useState, useEffect } from 'react';
+import Styles from './SharedComponents.jsx';
+import Navbar from './Navigation/Navbar.jsx';
+import LandingPage from './LandingPage.jsx';
 
 const App = (props) => {
   const SmallButton = Styles.smallButton;
@@ -8,7 +9,7 @@ const App = (props) => {
     <>
       <Navbar />
       <SmallButton>Small button</SmallButton>
-      <img src="./assets/pngAvocadoTree.jpeg"></img>
+      <img src="./assets/pngAvocadoTree.jpeg" />
     </>
   );
 };
