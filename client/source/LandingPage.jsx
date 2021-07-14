@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   font-family: droid-sans, sans-serif;
+  color: #095256;
 }
 `;
 /*
@@ -56,10 +57,11 @@ const VerticalContainer = styled.div`
 const AvocadoIntro = styled.div`
   display:flex;
   flex-direction: column;
+  min-width: 100vw;
   position: relative;
   background-image: url("./assets/pngAvocadoTree.jpeg");
   background-size: cover;
-  min-height: 60vh;
+  height: 60vh;
 
   .text {
     position: absolute;
@@ -72,15 +74,17 @@ const AvocadoIntro = styled.div`
 
   .startOptions {
     display: flex;
+    min-width: 100%;
     position: absolute;
     margin: 0 -10px;
     left: 50%;
     top: 60%;
+    justify-content: center;
     transform: translate(-50%, -50%);
 
     button {
-      margin: 0 10px;
-      width: 400px;
+      margin: 0px 10px;
+      width: 30%;
       height: 100px;
       border: none;
       border-radius: 5px;
@@ -102,12 +106,32 @@ const GroceryShop = styled.div`
   display: flex;
   flex-direction: row;
   min-width: 100vw;
-  min-height: 60vh;
+  height: 60vh;
+
   background-color: #F5D5DF;
 
   .groceryImage {
     position: relative;
-    min-width: 60%;
+    height: 100%;
+    width: 55vw;
+    object-fit: cover;
+  }
+
+  button {
+    margin: 0 10px;
+    width: 400px;
+    height: 100px;
+    border: none;
+    border-radius: 5px;
+    color: #095256;
+    background-color: #FEDCAC;
+    font-size: 30px;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    margin: 30px;
+    cursor: pointer;
+    :active {
+      box-shadow: none;
+    }
   }
 `;
 
@@ -115,17 +139,59 @@ const FarmerSection = styled.div`
   display: flex;
   flex-direction: row;
   min-width: 100vw;
-  min-height: 60vh;
+  height: 60vh;
   background-color: #F5D5DF;
 
-  .groceryImage {
+  .farmerImage {
     position: relative;
-    min-width: 60%;
+    height: 100%;
+    width: 55vw;
+    object-fit: cover;
   }
+
+
+  button {
+    margin: 0 10px;
+    width: 400px;
+    height: 100px;
+    border: none;
+    border-radius: 5px;
+    color: #095256;
+    background-color: #FEDCAC;
+    font-size: 30px;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    margin: 30px;
+    cursor: pointer;
+    :active {
+      box-shadow: none;
+    }
+  }
+
 `;
 
 const Description = styled.div`
-  display: column;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 45%;
+
+  h2 {
+    font-size: 40px;
+    margin: 10% 10% 2% 10%;
+  }
+
+  div {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+  }
+
+  button {
+    position: absolute;
+    top: 60%;
+    min-width: 80%;
+    margin: 0% 10% 0% 10%;
+  }
 `;
 
 const Padding = styled.div`
@@ -154,16 +220,33 @@ const LandingPage = () => {
         <Padding />
         <GroceryShop>
           <Description>
-            Stuff
+            <h2>
+              Groceries and health-centered products
+            </h2>
+            <div>
+              Healthy snacks are actually a thing. You want ‘em? We’ve got em!
+            </div>
+            <button type="button">
+              Browse the shop
+            </button>
           </Description>
-          <img className="groceryImage" alt="Groceries" />
+          <img className="groceryImage" alt="Groceries" src="./assets/groceries.jpeg" />
         </GroceryShop>
         <Padding />
         <FarmerSection>
           <Description>
-            Meet the farmers
+            <h2>
+              Directly from your local farmers
+            </h2>
+            <div>
+              Support your community and reduce emissions
+              by minimizing travel distance from farm to table
+            </div>
+            <button type="button">
+              Meet the farmers
+            </button>
           </Description>
-          <img className="farmerImage" alt="farmers" />
+          <img className="farmerImage" alt="farmers" src="./assets/localFarmer.jpeg"/>
         </FarmerSection>
       </VerticalContainer>
     </>
