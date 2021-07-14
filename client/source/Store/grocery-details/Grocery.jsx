@@ -6,9 +6,10 @@ import {
   GroceryImg,
   AddToCartButton
 } from './GroceryElements.js';
-import GroceryDummyData from '../GroceryDummyData.js'
+import { groceryDummyData } from '../GroceryDummyData.js';
 
 const Grocery = () => {
+  console.log('Dummy Data', groceryDummyData);
   return (
     <GroceryContainer>
       Groceries

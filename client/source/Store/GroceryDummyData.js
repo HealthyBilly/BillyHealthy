@@ -1,4 +1,4 @@
-const groceryDummyData = [
+export const groceryDummyData = [
   {
     name: 'Organic Avocados',
     price: '$3.99',

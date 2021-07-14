@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const GroceryContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 3%;
 `;
 
 export const GroceryBox = styled.div`
