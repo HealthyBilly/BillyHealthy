@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
 export const GroceryContainer = styled.div`
+  font-family: droid-sans, sans-serif;
+  font-color: #095256;
+  font-size: 12px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin-left: 10%;
+  margin-left: 15%;
   margin-right: 10%;
   margin-top: 3%;
 `;
@@ -11,16 +14,18 @@ export const GroceryContainer = styled.div`
 export const GroceryBox = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  font-family: droid sans;
-  font-color: #095256;
+  justify-items: center;
   background: #FFFFFF;
-  height: 75px;
-  width: 75px;
+  height: 250px;
+  width: 180px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
 `;
 
 export const GroceryImg = styled.img`
-  width: 150px;
-  height: 100px;
+  width: 120px;
+  height: 130px;
   margin-left: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -28,15 +33,15 @@ export const GroceryImg = styled.img`
 `;
 
 export const AddToCartButton = styled.button`
-  width: 320px;
-  height: 60px;
+  width: 100px;
+  height: 30px;
   border: none;
   border-radius: 5px;
   color: #095256;
   background-color: #fedcac;
-  font-size: 30px;
+  font-size: 15px;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
-  margin: 30px;
+  margin: 10px;
   cursor: pointer;
   :active {
     box-shadow: none;
