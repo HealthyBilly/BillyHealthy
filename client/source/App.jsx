@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import Styles from "./SharedComponents.jsx";
+import React, { useState, useEffect } from 'react';
+import Styles from './SharedComponents.jsx';
+import LandingPage from './LandingPage.jsx';
 
 const App = (props) => {
   const SmallButton = Styles.smallButton;
