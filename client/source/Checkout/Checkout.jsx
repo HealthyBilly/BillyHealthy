@@ -6,7 +6,8 @@ import {
   PaymentContainer,
   ReviewItemsContainer,
   SummaryContainer,
-  Footer
+  Footer,
+  Button
 } from './CheckoutElements.js';
 
 const OuterContainer = styled.div`

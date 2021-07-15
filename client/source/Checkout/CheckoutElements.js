@@ -71,7 +71,20 @@ export const Footer = styled.div`
   .floatcontainer {
     float: right;
   }
-  .button {
-    
+  .purchase {
+    background-color: #F5D5DF;
+    padding: 20px 50px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.3);
+    transition: all 0.2s ease-in-out;
+    :hover {
+      cursor: pointer;
+      background: #FEDCAC;
+      transition: all 0.2s ease-in-out;
+    }
   }
+`;
+
+export const Button = styled.button`
 `;
