@@ -7,7 +7,7 @@ import {
   NavBtnLink,
   HealthyLogo
 } from './NavBarElements.js';
-import { useCart } from '../Store/cart-modal/Cart.jsx';
+import { useCart } from '../Store/cart-modal/Cart.js';
 
 const Navbar = () => {
   const cartItems = useCart();
