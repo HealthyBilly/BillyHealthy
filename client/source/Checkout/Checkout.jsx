@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import ReviewItemsCard from './ReviewItemsCard.jsx';
 import {
   Container,
   ShipContainer,
   PaymentContainer,
   ReviewItemsContainer,
+  ReviewItemsCard,
   SummaryContainer,
   Footer,
   Button
 } from './CheckoutElements.js';
-import {dummyData} from './dummyData.js';
+import { dummyData } from './dummyData.js';
 
 const OuterContainer = styled.div`
   background-color: #D4E7D6;
@@ -27,6 +27,23 @@ const OuterContainer = styled.div`
     }
   };
   arr = arr.join('');
+
+  // let itemArr = dummyData[0].cart.items;
+  // for (let i = 0; i < price.length; i++) {
+  //   let price += itemArr.price;
+  // }
+
+  // map cart data into review item card
+  let items = dummyData[0].cart.items.map((element) => (
+    <ReviewItemsCard>
+      <tr>
+        <td><img src={element.image} className="image" /></td>
+        <td><p className="name">{element.name}</p></td>
+        <td><p>Qty: {element.quantity}</p></td>
+        <td>price: {element.price}</td>
+      </tr>
+    </ReviewItemsCard>
+  ));
 /*
   General checkout page (Purpose):
     Will encompass the shipping and payment information of the client
@@ -67,9 +84,17 @@ const Checkout = () => {
       {/* TODO: Flesh out ReviewItemsCard and map each item in the data to display to be rendered */}
       <ReviewItemsContainer>
         <h3 className="heading">Review Items: </h3>
+        {items}
       </ReviewItemsContainer>
       <SummaryContainer>
         <h3 className="heading">Delivery Summary: </h3>
+        <div>
+          <h4>Shipping Address:</h4>
+          <span>{dummyData[0].street}</span>
+          <br />
+          <span>{dummyData[0].city}, {dummyData[0].state}</span>
+          <span>{dummyData[0].zipcode}</span>
+        </div>
       </SummaryContainer>
       <Footer>
         <div className="floatcontainer">

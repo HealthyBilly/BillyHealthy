@@ -11,7 +11,7 @@ export const Container = styled.div`
     'PaymentContainer ReviewItemsContainer'
     'SummaryContainer SummaryContainer'
     'Footer           Footer';
-  grid-template-columns: 4fr 5fr;
+  grid-template-columns: 3fr 7fr;
   grid-template-rows: 2fr 3fr 3fr 0.5fr;
 `;
 
@@ -32,7 +32,7 @@ export const ShipContainer = styled.div`
   }
   .client {
     text-align: left;
-    margin-top: 50px;
+    margin-top: 20px;
     font-size: 20px;
   }
   .button {
@@ -59,7 +59,8 @@ export const PaymentContainer = styled.div`
     margin-left: 10px;
   }
   .payment {
-    margin-left: 10px;
+    margin-left: 25px;
+    font-size: 18px;
   }
 `;
 
@@ -69,10 +70,40 @@ export const ReviewItemsContainer = styled.div`
   margin-right: 30px;
   border-radius: 20px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.3);
+  overflow-y: scroll;
   .heading {
     text-decoration: underline;
     margin-left: 10px;
   }
+  .image{
+    width: 100%
+    max-width: 100px;
+    max-height: 100px;
+    padding: 10px;
+    object-fit: cover;
+  }
+`;
+
+export const ReviewItemsCard = styled.table`
+  table-layout: fixed;
+  width: 800px;
+  .image{
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    object-fit: cover;
+    float: left;
+    clear: left;
+  }
+  .info{
+    margin-left: 25px;
+    margin-top: 28px;
+  }
+  .name {
+    max-width: 100px;
+    overflow: hidden;
+  }
+
 `;
 
 export const SummaryContainer = styled.div`
