@@ -3,8 +3,10 @@ import Styles from './SharedComponents.jsx';
 import Navbar from './Navigation/Navbar.jsx';
 import LandingPage from './LandingPage.jsx';
 
+
 const App = (props) => {
   const SmallButton = Styles.smallButton;
+
   return (
     <>
       <Navbar />
