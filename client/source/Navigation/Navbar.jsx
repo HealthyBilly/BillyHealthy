@@ -7,8 +7,10 @@ import {
   NavBtnLink,
   HealthyLogo
 } from './NavBarElements.js';
+import { useCart } from '../Store/cart-modal/Cart.jsx';
 
 const Navbar = () => {
+  const cartItems = useCart();
   return (
       <Nav>
         <HealthyLogo />
@@ -18,6 +20,7 @@ const Navbar = () => {
           <NavLink to='/farmers'>Meet the Farmers</NavLink>
           <NavLink to='/register'>Get Started</NavLink>
           <NavLink to='/checkout'>Checkout</NavLink>
+          <NavLink to='/cart'>Cart ({cartItems.length})</NavLink>
         </NavMenu>
         <NavBtn>
           <NavBtnLink to='/signin'>Sign In</NavBtnLink>
