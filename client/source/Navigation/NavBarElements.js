@@ -14,6 +14,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
+  font-family: droid-sans, sans-serif;
   color: #095256;
   display: flex;
   align-items: center;
@@ -39,6 +40,7 @@ export const NavBtn = styled.nav`
 `;
 
 export const NavBtnLink = styled(Link)`
+  font-family: droid-sans, sans-serif;
   border-radius: 4px;
   background: #F5D5DF;
   padding: 10px 22px;

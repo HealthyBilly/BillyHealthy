@@ -6,15 +6,25 @@ import {
   GroceryImg,
   AddToCartButton
 } from './GroceryElements.js';
-import GroceryDummyData from '../GroceryDummyData.js'
+import { groceryDummyData } from '../GroceryDummyData.js';
 
 const Grocery = () => {
+  console.log('dummyData', groceryDummyData)
+  let groceries = groceryDummyData.map((grocery) => {
+    return <GroceryBox>
+            <GroceryImg src={grocery.image}/>
+            <div>{grocery.name}</div>
+            <div>{grocery.price}</div>
+            <AddToCartButton>Add to Cart</AddToCartButton>
+          </GroceryBox>
+  });
+
   return (
     <GroceryContainer>
-      Groceries
+      {groceries}
     </GroceryContainer>
   );
 };
 
 
-export default Grocery
+export default Grocery;
