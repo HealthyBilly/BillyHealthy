@@ -1,5 +1,6 @@
 import React from 'react';
 import Store from './Store/Store.jsx';
+import Checkout from './Checkout/Checkout.jsx';
 import Navbar from "./Navigation/Navbar.jsx";
 import { Route, Switch, Redirect } from 'react-router-dom';
 
@@ -9,6 +10,7 @@ export const Routes = () => {
       <Navbar />
       <Switch>
         <Route exact path="/market" component={Store} />
+        <Route exact path="/checkout" component={Checkout} />
       </Switch>
     </div>
   );
