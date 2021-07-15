@@ -198,6 +198,23 @@ const Padding = styled.div`
     min-height: 10vh;
 `;
 
+const PersonalizationSection = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: ${(props) => (props.column ? 'column' : 'row')};
+  width: 100%;
+  height: 60vh;
+  background-color: #FEDCAC;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    position: absolute;
+    top: 10%;
+    font-size: 40px;
+  }
+`;
+
 const LandingPage = () => {
   const word = 'Convenience';
   return (
@@ -233,6 +250,18 @@ const LandingPage = () => {
           <img className="groceryImage" alt="Groceries" src="./assets/groceries.jpeg" />
         </GroceryShop>
         <Padding />
+        <PersonalizationSection column>
+          <h2>
+            Shop by over 50 diets and values
+          </h2>
+          <div>
+            Find food that meets your dietary needs and tastes amazing
+          </div>
+          <button type="button">
+            Personalize your marketplace
+          </button>
+        </PersonalizationSection>
+        <Padding />
         <FarmerSection>
           <Description>
             <h2>
@@ -246,7 +275,7 @@ const LandingPage = () => {
               Meet the farmers
             </button>
           </Description>
-          <img className="farmerImage" alt="farmers" src="./assets/localFarmer.jpeg"/>
+          <img className="farmerImage" alt="farmers" src="./assets/localFarmer.jpeg" />
         </FarmerSection>
       </VerticalContainer>
     </>
