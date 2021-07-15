@@ -17,6 +17,10 @@ export const Container = styled.div`
 
 export const ShipContainer = styled.div`
   grid-area: ShipContainer;
+  display: grid;
+  grid-template-areas:
+    'heading client button';
+  grid-template-columns: 1fr 1fr 1fr;
   background: white;
   margin: 30px 30px 20px 30px;
   padding: 10px;
@@ -25,6 +29,22 @@ export const ShipContainer = styled.div`
   .heading {
     text-decoration: underline;
     margin-left: 10px;
+  }
+  .client {
+    text-align: left;
+    margin-top: 50px;
+    font-size: 20px;
+  }
+  .button {
+    border: none;
+    background: transparent;
+    color: blue;
+    text-decoration: underline;
+    margin-bottom: 150px;
+    margin-left: 150px;
+    :hover {
+      cursor: pointer;
+    }
   }
 `;
 
@@ -36,6 +56,9 @@ export const PaymentContainer = styled.div`
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.3);
   .heading {
     text-decoration: underline;
+    margin-left: 10px;
+  }
+  .payment {
     margin-left: 10px;
   }
 `;
@@ -87,4 +110,11 @@ export const Footer = styled.div`
 `;
 
 export const Button = styled.button`
+  border: none;
+  background: transparent;
+  color: blue;
+  text-decoration: underline;
+  :hover {
+    cursor: pointer;
+  }
 `;
