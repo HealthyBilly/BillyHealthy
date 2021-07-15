@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -62,6 +62,7 @@ const AvocadoIntro = styled.div`
   background-image: url("./assets/pngAvocadoTree.jpeg");
   background-size: cover;
   height: 60vh;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
 
   .text {
     position: absolute;
@@ -107,6 +108,7 @@ const GroceryShop = styled.div`
   flex-direction: row;
   min-width: 100vw;
   height: 60vh;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
 
   background-color: #F5D5DF;
 
@@ -122,7 +124,7 @@ const GroceryShop = styled.div`
     width: 400px;
     height: 100px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     color: #095256;
     background-color: #FEDCAC;
     font-size: 30px;
@@ -141,6 +143,7 @@ const FarmerSection = styled.div`
   min-width: 100vw;
   height: 60vh;
   background-color: #F5D5DF;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
 
   .farmerImage {
     position: relative;
@@ -155,7 +158,7 @@ const FarmerSection = styled.div`
     width: 400px;
     height: 100px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     color: #095256;
     background-color: #FEDCAC;
     font-size: 30px;
@@ -207,16 +210,71 @@ const PersonalizationSection = styled.div`
   background-color: #FEDCAC;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
+
 
   h2 {
-    position: absolute;
-    top: 10%;
+    // position: absolute;
+    // top: 10%;
     font-size: 40px;
+  }
+
+  button {
+    margin: 0 10px;
+    width: 50%;
+    padding: 0 10px;
+    height: 100px;
+    border: none;
+    border-radius: 10px;
+    color: #095256;
+    background-color: #E39774;
+    font-size: 30px;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    margin: 30px;
+    cursor: pointer;
+    :active {
+      box-shadow: none;
+    }
+  }
+  .description {
+    margin-top: 1%;
+    margin-bottom: 0%;
+  }
+  .prefOptions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 100%;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+
+    .imgs {
+      height: 100px;
+      width: 100px;
+      border-radius: 5px;
+      margin-left: 3.5%;
+      margin-right: 3.5%;
+    }
+
+    .prefs {
+      font-size: 100%;
+      width: 10%;
+      height: 50%;
+    }
   }
 `;
 
+const dummyPreferences = ['Ketogenic', 'Organic', 'Vegan', 'Gluten-Free'];
+const dummyImages = ['https://therecipecritic.com/wp-content/uploads/2017/06/0C4A8880.jpg', 'https://therecipecritic.com/wp-content/uploads/2017/06/0C4A8880.jpg', 'https://therecipecritic.com/wp-content/uploads/2017/06/0C4A8880.jpg', 'https://therecipecritic.com/wp-content/uploads/2017/06/0C4A8880.jpg'];
+
+const mapButtons = (buttonName, index) => <button key={index} type="button" className="prefs">{buttonName}</button>;
+const mapImages = (image, index) => <img alt="food" key={index} src={image} className="imgs" />;
 const LandingPage = () => {
   const word = 'Convenience';
+  // fill in preference options via props
+  const [preferences, setPreferences] = useState([dummyImages]);
+
   return (
     <>
       <GlobalStyle />
@@ -254,8 +312,14 @@ const LandingPage = () => {
           <h2>
             Shop by over 50 diets and values
           </h2>
-          <div>
+          <div className="description">
             Find food that meets your dietary needs and tastes amazing
+          </div>
+          <div className="prefOptions">
+            {dummyPreferences.map(mapButtons)}
+          </div>
+          <div className="prefOptions">
+            {dummyImages.map(mapImages)}
           </div>
           <button type="button">
             Personalize your marketplace
