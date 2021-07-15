@@ -198,7 +198,7 @@ const Description = styled.div`
 `;
 
 const Padding = styled.div`
-    min-height: 10vh;
+    min-height: 15vh;
 `;
 
 const PersonalizationSection = styled.div`
@@ -341,6 +341,7 @@ const LandingPage = () => {
           </Description>
           <img className="farmerImage" alt="farmers" src="./assets/localFarmer.jpeg" />
         </FarmerSection>
+        <Padding />
       </VerticalContainer>
     </>
   );
