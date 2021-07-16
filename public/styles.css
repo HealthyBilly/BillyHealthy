@@ -1,5 +1,5 @@
 body {
-  background-color: #D4E7D6;
+  background-color: #d4e7d6;
   font-family: droid-sans, sans-serif;
 }
 
@@ -111,6 +111,11 @@ body {
   display: flex;
   margin-left: auto;
   margin-right: auto;
+}
+
+.farmer-website {
+  color: #095256;
+  text-decoration: none;
 }
 
 .farmer-deal {
