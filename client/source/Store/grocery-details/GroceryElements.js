@@ -8,7 +8,7 @@ export const GroceryContainer = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-left: 15%;
   margin-right: 15%;
-  margin-top: 3%;
+  margin-bottom: 3%;
 `;
 
 export const GroceryBox = styled.div`
