@@ -1,5 +1,3 @@
-# Import SharedComponents.jsx for reusable styles
-
 # Health Food Inc.
 
 Meal selector based on diets
