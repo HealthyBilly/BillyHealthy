@@ -17,6 +17,8 @@ const GlobalStyle = createGlobalStyle`
 * {
   font-family: droid-sans, sans-serif;
   color: #095256;
+  // margin: 0;
+  // padding: 0;
 }
 `;
 
