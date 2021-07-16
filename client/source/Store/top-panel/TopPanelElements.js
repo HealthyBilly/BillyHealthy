@@ -14,7 +14,7 @@ export const TopPanelContainer = styled.div`
 
 export const SearchInput = styled.input`
   height: 50px;
-  font-size: 25px;
+  font-size: 15px;
   color: #095256;
   width: 100%;
   border: 2px solid #B2B7B8;
@@ -74,5 +74,4 @@ export const DropDownContent = styled.div`
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
 `;
