@@ -5,7 +5,6 @@ import Navbar from "./Navigation/Navbar.jsx";
 import { Route, Switch, Redirect } from 'react-router-dom';
 import RecipeCalculator from './RecipeCal/RecipeCalculator.jsx';
 import Login from './Login/Login.jsx';
-import Cart from './Store/cart-modal/Cart.jsx';
 
 
 export const Routes = () => {

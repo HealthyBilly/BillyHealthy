@@ -7,6 +7,7 @@ export const ModalContainer = styled.div`
   top: 50%;
   left: 50%;
   height: 500px;
+  width: auto;
   margin-top: -10px;
   border: 1px none #095256;
   transform: translate(-50%, -50%);

@@ -5,10 +5,14 @@ import {
   NavLink,
   NavBtn,
   NavBtnLink,
-  HealthyLogo
+  HealthyLogo,
+  CartIconBox,
+  CartCountCircle,
+  CartImgStyle
 } from './NavBarElements.js';
 import { useCart } from '../Store/cart-modal/Cart.js';
 import CartModal from '../Store/cart-modal/CartModal.jsx';
+import CartImg from '../Store/grocery-details/shoppingCartIconTeal.png';
 
 const Navbar = () => {
   const cartItems = useCart();
@@ -26,7 +30,8 @@ const Navbar = () => {
             to='/market'
             onClick={() => setModalIsOpen(true)}
           >
-            Cart ({cartItems.length})
+            <CartImgStyle src={CartImg}></CartImgStyle>
+            <CartCountCircle>{cartItems.length}</CartCountCircle>
           </NavLink>
           <CartModal open={isModalOpen} onClose={() => setModalIsOpen(false)}></CartModal>
         </NavMenu>

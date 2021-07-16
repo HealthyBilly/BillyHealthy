@@ -74,7 +74,7 @@ const CartModal = ({ open, children, onClose }) => {
         })}
         </span>
       </p>
-      <div>Delivery and taxes calculated at checkout.</div>
+      <div style={{"fontSize": 13, "color": "#B2B7B8"}}>Delivery and taxes calculated at checkout.</div>
      <CheckoutButton>Checkout</CheckoutButton>
    </ModalContainer>,
    document.getElementById('portal')
