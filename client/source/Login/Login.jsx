@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
-// import Modal from 'react-modal';
 import Modal from './Modal.jsx';
 import { NavLink as Link } from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import getFirebase from '../firebase/firebaseIndex.js';
+// import getFirebase from '../firebase/firebaseIndex.js';
+import { auth, firestore } from '../firebase/firebaseIndex.js';
 
 
 const Container = styled.div`
-  width: 50%;
+  width: 40%;
   height: 100%;
   padding-left:30%;
   padding-right:30%;
@@ -23,10 +23,10 @@ const Container = styled.div`
 const LoginContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 400px;
+  height: 510px;
   border-radius: 20px;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
-  margin-top: 25%;
+  margin-top: 20%;
   margin-bottom: 30%;
   background-color: white;
   flex-direction: column;
@@ -133,7 +133,7 @@ width: 100%;
 padding: 12px;
 border: 1px solid black;
 border-radius: 4px;
-margin: 0px;
+margin-bottom: 15px;
 opacity: 0.85;
 display: inline-block;
 // font-size: 17px;
@@ -203,7 +203,7 @@ const Login = () => {
     setShowModal(true);
   }
 
-  const firebaseInstance = getFirebase();
+  // const firebaseInstance = getFirebase();
 
   var togglePassword = () => {
     var x = document.getElementById("password");
@@ -211,6 +211,50 @@ const Login = () => {
       x.type = "text";
     } else {
       x.type = "password";
+    }
+  }
+
+  var handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log('submitted');
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    console.log(email);
+    console.log(password);
+
+    try {
+      // if (firebaseInstance) {
+        // firebaseInstance.auth().signInWithEmailAndPassword(email, password)
+        auth.signInWithEmailAndPassword(email, password)
+          .then(res => {
+            console.log('logged in!');
+            console.log(res)
+            alert(`Welcome back ${email}!`);
+          })
+          .catch(err => {
+            var errorMessage = '';
+            switch (err.code) {
+              case 'auth/invalid-email':
+                errorMessage = 'There is no account associated with that email. Please sign up to create an account!';
+                break;
+            case 'auth/user-not-found':
+              errorMessage = 'There is no account associated with that email. Please sign up to create an account!';
+              break;
+              case 'auth/wrong-password':
+                errorMessage = 'Incorrect login info. Please try again.';
+                break;
+              default:
+                console.log(err);
+                break;
+            }
+            alert(`${errorMessage}`);
+          })
+
+      // }
+    } catch (error) {
+      console.log("error", error);
+      alert(error.message);
     }
   }
 
@@ -228,33 +272,7 @@ const Login = () => {
 
           </ButtonContainer>
           {/* <Form> */}
-          <form method="post" onSubmit={(e) => {
-            e.preventDefault();
-            console.log('submitted');
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-
-            console.log(email);
-            console.log(password);
-
-            try {
-              if (firebaseInstance) {
-                firebaseInstance.auth().signInWithEmailAndPassword(email, password)
-                  .then(res => {
-                    console.log('logged in!');
-                    console.log(res)
-                    alert(`Welcome back ${email}!`);
-                  })
-                  .catch(err => {
-                    alert(`There is no account associated with that email. Please sign up to create an account!`);
-                  })
-
-              }
-            } catch (error) {
-              console.log("error", error);
-              alert(error.message);
-            }
-          }}>
+          <form method="post" onSubmit={handleFormSubmit}>
             <Title>Email</Title>
             <Input name="email" id="email" type="text" required="required"></Input>
             <Title>Password</Title>
@@ -272,54 +290,13 @@ const Login = () => {
           {/* <div>
 
           </div> */}
-          <SignLogInLink to='/register'>Not a member? Sign up now</SignLogInLink>
+          <SignLogInLink to='/signup'>Not a member? Sign up now</SignLogInLink>
 
 
         </LoginContainer>
       </Container>
     </div>
   )
-
-  // return(
-  //   <div>
-  //     <Container>
-  //       <LoginContainer>
-  //         <LIorSUcon>
-  //         {clicked === 'Login'?
-  //           <>
-  //             <ClickedLIorSU onClick={handleClickedLIorSU}>Login</ClickedLIorSU>
-  //             <LIorSU onClick={handleClickedLIorSU}>Sign up</LIorSU>
-  //           </>
-  //           :
-  //           <>
-  //             <LIorSU onClick={handleClickedLIorSU}>Login</LIorSU>
-  //             <ClickedLIorSU onClick={handleClickedLIorSU}>Sign up</ClickedLIorSU>
-  //           </>
-  //         }
-  //         </LIorSUcon>
-
-  //         {showModal ?
-  //           <Modal handleClose={closeModal}>
-
-  //           </Modal>
-  //           :
-  //           <></>
-  //         }
-
-
-  //         {/* <StyledModal
-  //           isOpen={showModal}
-  //           contentLabel="Modal test">
-  //             Hi
-  //         </StyledModal> */}
-
-  //         <Button>Login with FaceBook</Button>
-  //         <Button>Login with Google</Button>
-  //         <Button>Login with Email</Button>
-  //       </LoginContainer>
-  //     </Container>
-  //   </div>
-  // )
 }
 
 export default Login;

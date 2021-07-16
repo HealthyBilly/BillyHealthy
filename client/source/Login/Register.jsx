@@ -3,7 +3,8 @@ import styled from "styled-components";
 import Modal from './Modal.jsx';
 import { NavLink as Link } from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import getFirebase from '../firebase/firebaseIndex.js';
+// import getFirebase from '../firebase/firebaseIndex.js';
+import { auth, firestore, generateUserDocument } from '../firebase/firebaseIndex.js';
 
 
 const Container = styled.div`
@@ -20,32 +21,21 @@ const Container = styled.div`
 `;
 
 const LoginContainer = styled.div`
-  display: flex;
-  width: 100%;
-  margin-top: 25%;
-  margin-bottom: 30%;
-  background-color: white;
-  flex-direction: column;
-  // justify-content: center;
-  // align-content: center;
-  padding-right:15%;
-  padding-left:15%;
+display: flex;
+width: 100%;
+height: 595px;
+border-radius: 20px;
+box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
+margin-top: 15%;
+margin-bottom: 30%;
+background-color: white;
+flex-direction: column;
+// justify-content: center;
+// align-content: center;
+padding-right:15%;
+padding-left:15%;
 
 `;
-// const Button = styled.button`
-//   border: none;
-//   border-radius: 5px;
-//   color: #095256;
-//   background-color: #fedcac;
-//   font-size: 30px;
-//   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
-//   margin: 5%;
-//   margin-bottom: 0%;
-//   cursor: pointer;
-//   :active {
-//     box-shadow: none;
-//   }
-// `;
 
 const LIorSUcon = styled.div`
   display:flex;
@@ -129,7 +119,7 @@ width: 100%;
 padding: 12px;
 border: 1px solid black;
 border-radius: 4px;
-margin: 0px;
+margin-bottom: 15px;
 opacity: 0.85;
 display: inline-block;
 // font-size: 17px;
@@ -176,22 +166,6 @@ const SignLogInLink = styled(Link)`
 `;
 
 
-// const signUp = async (event) => {
-//   event.preventDefault();
-
-//   try {
-//     if (firebaseInstance) {
-//       const user = await firebaseInstance.auth().createUserWithEmailAndPassword(email.value, password.value)
-//       console.log("user", user)
-//       alert(`Welcome ${email.value}!`);
-//     }
-//   } catch (error) {
-//     console.log("error", error);
-//     alert(error.message);
-//   }
-// };
-
-
 const Login = () => {
   const [clicked, setClicked] = useState('Login');
   const handleClickedLIorSU = (event) => {
@@ -199,14 +173,71 @@ const Login = () => {
     setShowModal(true);
   }
 
-  const firebaseInstance = getFirebase();
-
   var togglePassword = () => {
     var x = document.getElementById("password");
     if (x.type === "password") {
       x.type = "text";
     } else {
       x.type = "password";
+    }
+  }
+
+  var handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log('submitted');
+    var displayName = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    console.log(email);
+    console.log(password);
+
+    try {
+        auth.createUserWithEmailAndPassword(email, password)
+          .then(res => {
+            console.log('res: ', res);
+            // var user = res.user;
+
+            // if (!data.exists) {
+            //   const userRef = firestore.doc(`users/${user.uid}`);
+            //   userRef.get()
+            //     .then(res => {
+            //       var data = res;
+            //       userRef.set({
+            //         'displayName': displayName,
+            //         'email': email,
+            //         'password': password
+            //       })
+            //       .then(res => {
+            //         console.log('successfully added to firestore');
+            //       })
+            //     })
+            // }
+            console.log('signed up!');
+            alert(`Welcome ${displayName}!`);
+
+          })
+          .catch(err => {
+            console.log(err);
+            var errorMessage = '';
+            switch (err.code) {
+              case 'auth/email-already-in-use':
+                errorMessage = 'There is already an account associated with that email.';
+                break;
+              case 'auth/weak-password':
+                errorMessage = 'Password should be at least 6 characters.';
+                break;
+              default:
+                console.log(err);
+                break;
+            }
+            alert(`${errorMessage}`);
+          })
+
+      // }
+    } catch (error) {
+      console.log("Error: ", error);
+      alert(error.message);
     }
   }
 
@@ -224,35 +255,11 @@ const Login = () => {
 
           </ButtonContainer>
           {/* <Form> */}
-          <form method="post" onSubmit={(e) => {
-            e.preventDefault();
-            console.log('submitted');
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-
-            console.log(email);
-            console.log(password);
-
-            try {
-              if (firebaseInstance) {
-                firebaseInstance.auth().createUserWithEmailAndPassword(email, password)
-                  .then(res => {
-                    console.log('signed up!');
-                    console.log(res)
-                    alert(`Welcome ${email}!`);
-                  })
-                  .catch(err => {
-                    alert(err);
-                  })
-
-              }
-            } catch (error) {
-              console.log("error", error);
-              alert(error.message);
-            }
-          }}>
+          <form method="post" onSubmit={handleFormSubmit}>
+            <Title>Your Name</Title>
+            <Input name="name" id="name" type="text" required="required"></Input>
             <Title>Email</Title>
-            <Input name="email" id="email" type="text" required="required"></Input>
+            <Input name="email" id="email" type="email" required="required"></Input>
             <Title>Password</Title>
             <Input name="password" id="password" type="password" required="required"></Input>
             <div>
@@ -275,47 +282,6 @@ const Login = () => {
       </Container>
     </div>
   )
-
-  // return(
-  //   <div>
-  //     <Container>
-  //       <LoginContainer>
-  //         <LIorSUcon>
-  //         {clicked === 'Login'?
-  //           <>
-  //             <ClickedLIorSU onClick={handleClickedLIorSU}>Login</ClickedLIorSU>
-  //             <LIorSU onClick={handleClickedLIorSU}>Sign up</LIorSU>
-  //           </>
-  //           :
-  //           <>
-  //             <LIorSU onClick={handleClickedLIorSU}>Login</LIorSU>
-  //             <ClickedLIorSU onClick={handleClickedLIorSU}>Sign up</ClickedLIorSU>
-  //           </>
-  //         }
-  //         </LIorSUcon>
-
-  //         {showModal ?
-  //           <Modal handleClose={closeModal}>
-
-  //           </Modal>
-  //           :
-  //           <></>
-  //         }
-
-
-  //         {/* <StyledModal
-  //           isOpen={showModal}
-  //           contentLabel="Modal test">
-  //             Hi
-  //         </StyledModal> */}
-
-  //         <Button>Login with FaceBook</Button>
-  //         <Button>Login with Google</Button>
-  //         <Button>Login with Email</Button>
-  //       </LoginContainer>
-  //     </Container>
-  //   </div>
-  // )
 }
 
 export default Login;

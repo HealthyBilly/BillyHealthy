@@ -2,7 +2,7 @@
 import firebase from 'firebase';
 import 'firebase/app';
 import "firebase/auth";
-// import "firebase/firestore";
+import "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBGB3OKXVaG0IYzpPi7ylptT3fbCDdmngA",
@@ -14,21 +14,41 @@ const firebaseConfig = {
   measurementId: "G-XH8CMGWTBE"
 };
 
-let instance
+// let instance
 
-export default function getFirebase() {
-    if (typeof window !== "undefined") {
-        if (instance) return instance
-        instance = firebase.initializeApp(firebaseConfig);
-        return instance
-    }
+// export default function getFirebase() {
+//     if (typeof window !== "undefined") {
+//         if (instance) return instance
+//         instance = firebase.initializeApp(firebaseConfig);
+//         return instance
+//     }
 
-    return null
-}
+//     return null
+// }
 
-// firebase.initializeApp(firebaseConfig);
-// firebase.auth();
 
-// export default {
-//   firebaseConfig,
+
+firebase.initializeApp(firebaseConfig);
+
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+
+// firestore methods
+
+// export const generateUserDocument = async (user, additionalData) => {
+//   if (!user) return;
+//   const userRef = firestore.doc(`users/${user.uid}`);
+//   const data = await userRef.get();
+//   if (!data.exists) {
+//     const { email, displayName } = user;
+//     try {
+//       userRef.set({
+//         displayName,
+//         email,
+//         ...additionalData
+//       });
+//     } catch (error) {
+//       console.error("Error creating user document", error);
+//     }
+//   }
 // }
