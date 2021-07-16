@@ -34,7 +34,18 @@ const FarmerItem = (props) => {
         <div className="farmer-info">
           <p className="farmer-description">{props.farmer.Description}</p>
           <div className="farmer-links">
-            <button className="info-button">Go to website</button>
+            <button
+              className="info-button"
+              // onClick={window.open(props.farmer.Website, "_blank")}
+            >
+              <a
+                className="farmer-website"
+                href={props.farmer.Website}
+                target="_blank"
+              >
+                Go to website
+              </a>
+            </button>
             <div className="farmer-deal">
               <button className="info-button">{props.farmer.Offer}</button>
               <p>{props.farmer.OfferExpiration}</p>

@@ -7,6 +7,7 @@ const farmers = [
     Offer: "Claim free avocados",
     OfferExpiration: "7 hours left!",
     Logo: "https://billyhealthyfood.s3.amazonaws.com/avocado-logo.png",
+    Website: "https://californiaavocado.com/avocado101/avocado-growers/",
   },
   {
     Farmer: "Saltwater Fishers",
@@ -16,6 +17,7 @@ const farmers = [
     Offer: "Save $12 on salmon",
     OfferExpiration: "48 minutes left!",
     Logo: "https://billyhealthyfood.s3.amazonaws.com/fish-logo.png",
+    Website: "https://www.betterfishfarming.org/",
   },
   {
     Farmer: "Nuts and Berries",
@@ -25,6 +27,7 @@ const farmers = [
     Offer: "Receive deals",
     OfferExpiration: null,
     Logo: "https://billyhealthyfood.s3.amazonaws.com/nuts-berries-logo.png",
+    Website: "https://www.cherry-time.com/",
   },
   {
     Farmer: "Heartichoke Farms",
@@ -34,6 +37,7 @@ const farmers = [
     Offer: "Claim free artichokes",
     OfferExpiration: "2 days left!",
     Logo: "https://billyhealthyfood.s3.amazonaws.com/artichoke-logo.png",
+    Website: "https://www.oceanmist.com/castroville-artichokes",
   },
 ];
 
