@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -271,8 +271,15 @@ const dummyImages = ['https://therecipecritic.com/wp-content/uploads/2017/06/0C4
 
 const mapButtons = (buttonName, index) => <button key={index} type="button" className="prefs">{buttonName}</button>;
 const mapImages = (image, index) => <img alt="food" key={index} src={image} className="imgs" />;
+
 const LandingPage = () => {
   const word = 'Convenience';
+  let history = useHistory();
+
+  const redirect = (e) => {
+    const { name } = e.target;
+    history.push(`/${name}`);
+  };
   // fill in preference options via props
   const [preferences, setPreferences] = useState([dummyImages]);
 
@@ -285,12 +292,10 @@ const LandingPage = () => {
             {`${word} never looked so healthy`}
           </div>
           <div className="startOptions">
-            <button type="button">
-              <Link to="/calulator">
-                Get started quick
-              </Link>
+            <button type="button" name="calculator" onClick={redirect}>
+              Get started quick
             </button>
-            <button type="button">
+            <button type="button" name="market" onClick={redirect}>
               Browse and shop
             </button>
           </div>
@@ -304,7 +309,7 @@ const LandingPage = () => {
             <div>
               Healthy snacks are actually a thing. You want ‘em? We’ve got em!
             </div>
-            <button type="button">
+            <button type="button" name="calculator" onClick={redirect}>
               Browse the shop
             </button>
           </Description>
@@ -324,7 +329,7 @@ const LandingPage = () => {
           <div className="prefOptions">
             {dummyImages.map(mapImages)}
           </div>
-          <button type="button">
+          <button type="button" name="market" onClick={redirect}>
             Personalize your marketplace
           </button>
         </PersonalizationSection>
@@ -338,7 +343,7 @@ const LandingPage = () => {
               Support your community and reduce emissions
               by minimizing travel distance from farm to table
             </div>
-            <button type="button">
+            <button type="button" name="farmers" onClick={redirect}>
               Meet the farmers
             </button>
           </Description>
