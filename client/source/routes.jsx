@@ -8,6 +8,7 @@ import Footer from './Footer.jsx';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import RecipeCalculator from './RecipeCal/RecipeCalculator.jsx';
 import Login from './Login/Login.jsx';
+import Register from './Login/Register.jsx';
 
 export const Routes = () => {
   return (
@@ -18,7 +19,8 @@ export const Routes = () => {
         <Route exact path="/market" component={Store} />
         <Route exact path="/checkout" component={Checkout} />
         <Route exact path="/calculator" component={RecipeCalculator} />
-        <Route exact path="/signin" component={Login} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={Register} />
         <Route exact path="/farmers" component={Farmers} />
         <Route exact path="/cart" />
       </Switch>

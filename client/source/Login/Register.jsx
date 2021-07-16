@@ -4,7 +4,7 @@ import Modal from './Modal.jsx';
 import { NavLink as Link } from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import getFirebase from '../firebase/firebaseIndex.js';
-import { auth, firestore } from '../firebase/firebaseIndex.js';
+import { auth, firestore, generateUserDocument } from '../firebase/firebaseIndex.js';
 
 
 const Container = styled.div`
@@ -21,35 +21,21 @@ const Container = styled.div`
 `;
 
 const LoginContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: 510px;
-  border-radius: 20px;
-  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
-  margin-top: 20%;
-  margin-bottom: 30%;
-  background-color: white;
-  flex-direction: column;
-  // justify-content: center;
-  // align-content: center;
-  padding-right:15%;
-  padding-left:15%;
+display: flex;
+width: 100%;
+height: 595px;
+border-radius: 20px;
+box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
+margin-top: 15%;
+margin-bottom: 30%;
+background-color: white;
+flex-direction: column;
+// justify-content: center;
+// align-content: center;
+padding-right:15%;
+padding-left:15%;
 
 `;
-// const Button = styled.button`
-//   border: none;
-//   border-radius: 5px;
-//   color: #095256;
-//   background-color: #fedcac;
-//   font-size: 30px;
-//   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
-//   margin: 5%;
-//   margin-bottom: 0%;
-//   cursor: pointer;
-//   :active {
-//     box-shadow: none;
-//   }
-// `;
 
 const LIorSUcon = styled.div`
   display:flex;
@@ -180,30 +166,12 @@ const SignLogInLink = styled(Link)`
 `;
 
 
-// const signUp = async (event) => {
-//   event.preventDefault();
-
-//   try {
-//     if (firebaseInstance) {
-//       const user = await firebaseInstance.auth().createUserWithEmailAndPassword(email.value, password.value)
-//       console.log("user", user)
-//       alert(`Welcome ${email.value}!`);
-//     }
-//   } catch (error) {
-//     console.log("error", error);
-//     alert(error.message);
-//   }
-// };
-
-
 const Login = () => {
   const [clicked, setClicked] = useState('Login');
   const handleClickedLIorSU = (event) => {
     setClicked(event.target.innerText)
     setShowModal(true);
   }
-
-  // const firebaseInstance = getFirebase();
 
   var togglePassword = () => {
     var x = document.getElementById("password");
@@ -217,6 +185,7 @@ const Login = () => {
   var handleFormSubmit = (e) => {
     e.preventDefault();
     console.log('submitted');
+    var displayName = document.getElementById('name').value;
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
 
@@ -224,25 +193,39 @@ const Login = () => {
     console.log(password);
 
     try {
-      // if (firebaseInstance) {
-        // firebaseInstance.auth().signInWithEmailAndPassword(email, password)
-        auth.signInWithEmailAndPassword(email, password)
+        auth.createUserWithEmailAndPassword(email, password)
           .then(res => {
-            console.log('logged in!');
-            console.log(res)
-            alert(`Welcome back ${email}!`);
+            console.log('res: ', res);
+            // var user = res.user;
+
+            // if (!data.exists) {
+            //   const userRef = firestore.doc(`users/${user.uid}`);
+            //   userRef.get()
+            //     .then(res => {
+            //       var data = res;
+            //       userRef.set({
+            //         'displayName': displayName,
+            //         'email': email,
+            //         'password': password
+            //       })
+            //       .then(res => {
+            //         console.log('successfully added to firestore');
+            //       })
+            //     })
+            // }
+            console.log('signed up!');
+            alert(`Welcome ${displayName}!`);
+
           })
           .catch(err => {
+            console.log(err);
             var errorMessage = '';
             switch (err.code) {
-              case 'auth/invalid-email':
-                errorMessage = 'There is no account associated with that email. Please sign up to create an account!';
+              case 'auth/email-already-in-use':
+                errorMessage = 'There is already an account associated with that email.';
                 break;
-            case 'auth/user-not-found':
-              errorMessage = 'There is no account associated with that email. Please sign up to create an account!';
-              break;
-              case 'auth/wrong-password':
-                errorMessage = 'Incorrect login info. Please try again.';
+              case 'auth/weak-password':
+                errorMessage = 'Password should be at least 6 characters.';
                 break;
               default:
                 console.log(err);
@@ -253,7 +236,7 @@ const Login = () => {
 
       // }
     } catch (error) {
-      console.log("error", error);
+      console.log("Error: ", error);
       alert(error.message);
     }
   }
@@ -262,7 +245,7 @@ const Login = () => {
     <div>
       <Container>
         <LoginContainer>
-          <Header>Sign In With</Header>
+          <Header>Sign Up With</Header>
           <ButtonContainer>
 
             <FacebookButton>
@@ -273,8 +256,10 @@ const Login = () => {
           </ButtonContainer>
           {/* <Form> */}
           <form method="post" onSubmit={handleFormSubmit}>
+            <Title>Your Name</Title>
+            <Input name="name" id="name" type="text" required="required"></Input>
             <Title>Email</Title>
-            <Input name="email" id="email" type="text" required="required"></Input>
+            <Input name="email" id="email" type="email" required="required"></Input>
             <Title>Password</Title>
             <Input name="password" id="password" type="password" required="required"></Input>
             <div>
@@ -290,7 +275,7 @@ const Login = () => {
           {/* <div>
 
           </div> */}
-          <SignLogInLink to='/signup'>Not a member? Sign up now</SignLogInLink>
+          <SignLogInLink to='/login'>Already a member? Log in now</SignLogInLink>
 
 
         </LoginContainer>

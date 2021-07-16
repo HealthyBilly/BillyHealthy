@@ -36,7 +36,7 @@ const Navbar = () => {
           <CartModal open={isModalOpen} onClose={() => setModalIsOpen(false)}></CartModal>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+          <NavBtnLink to='/login'>Log In</NavBtnLink>
         </NavBtn>
       </Nav>
   )
