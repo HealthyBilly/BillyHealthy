@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
-// import Modal from 'react-modal';
 import Modal from './Modal.jsx';
 import { NavLink as Link } from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -215,7 +214,7 @@ const Login = () => {
     <div>
       <Container>
         <LoginContainer>
-          <Header>Sign In With</Header>
+          <Header>Sign Up With</Header>
           <ButtonContainer>
 
             <FacebookButton>
@@ -236,14 +235,14 @@ const Login = () => {
 
             try {
               if (firebaseInstance) {
-                firebaseInstance.auth().signInWithEmailAndPassword(email, password)
+                firebaseInstance.auth().createUserWithEmailAndPassword(email, password)
                   .then(res => {
-                    console.log('logged in!');
+                    console.log('signed up!');
                     console.log(res)
-                    alert(`Welcome back ${email}!`);
+                    alert(`Welcome ${email}!`);
                   })
                   .catch(err => {
-                    alert(`There is no account associated with that email. Please sign up to create an account!`);
+                    alert(err);
                   })
 
               }
@@ -269,7 +268,7 @@ const Login = () => {
           {/* <div>
 
           </div> */}
-          <SignLogInLink to='/register'>Not a member? Sign up now</SignLogInLink>
+          <SignLogInLink to='/login'>Already a member? Log in now</SignLogInLink>
 
 
         </LoginContainer>

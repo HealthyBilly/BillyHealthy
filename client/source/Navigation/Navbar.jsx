@@ -11,7 +11,10 @@ import {
 const Navbar = () => {
   return (
       <Nav>
-        <HealthyLogo />
+        <NavLink to='/'>
+          <HealthyLogo/>
+        </NavLink>
+
         <NavMenu>
           <NavLink to='/market'>Market</NavLink>
           <NavLink to='/calculator'>Recipe Calculator</NavLink>
@@ -20,7 +23,7 @@ const Navbar = () => {
           <NavLink to='/checkout'>Checkout</NavLink>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+          <NavBtnLink to='/login'>Log In</NavBtnLink>
         </NavBtn>
       </Nav>
   )

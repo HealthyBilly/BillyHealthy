@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Styles from './SharedComponents.jsx';
 import Navbar from './Navigation/Navbar.jsx';
 import LandingPage from './LandingPage.jsx';
-
 
 const App = (props) => {
   const SmallButton = Styles.smallButton;
