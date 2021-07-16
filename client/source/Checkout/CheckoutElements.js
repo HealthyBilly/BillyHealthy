@@ -58,6 +58,7 @@ export const ReviewItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
   background: white;
+  max-height: 32vh;
   margin-right: 30px;
   margin-left: 30px;
   border-radius: 20px;
