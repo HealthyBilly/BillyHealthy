@@ -16,13 +16,13 @@ export const groceryDummyData = [
   },
   {
     name: 'Banza Chickpea Rotini Pasta',
-    price: 5.00,
+    price: 4.89,
     image: 'https://goodeggs4.imgix.net/d6fb8b07-f32b-4cf4-9c7c-574348910621.jpg?w=840&h=525&fm=jpg&q=80&fit=crop',
   },
   {
-    name: 'Organic Avocados',
-    price: 3.99,
-    image: 'http://cdn.shopify.com/s/files/1/2336/3219/products/shutterstock_86775112fuerte_1024x1024.jpg?v=1531930073',
+    name: 'Organic Coconut Water - 16 Fl Oz',
+    price: 4.99,
+    image: 'https://images.albertsons-media.com/is/image/ABS/960515317?$ecom-pdp-desktop$&defaultImage=Not_Available&defaultImage=Not_Available',
   },
   {
     name: 'Organic Oranges',
@@ -56,7 +56,7 @@ export const groceryDummyData = [
   },
   {
     name: 'Banza Chickpea Rotini Pasta',
-    price: 5.00,
+    price: 5.80,
     image: 'https://goodeggs4.imgix.net/d6fb8b07-f32b-4cf4-9c7c-574348910621.jpg?w=840&h=525&fm=jpg&q=80&fit=crop',
   },
   {
@@ -76,7 +76,7 @@ export const groceryDummyData = [
   },
   {
     name: 'Banza Chickpea Rotini Pasta',
-    price: 5.00,
+    price: 5.80,
     image: 'https://goodeggs4.imgix.net/d6fb8b07-f32b-4cf4-9c7c-574348910621.jpg?w=840&h=525&fm=jpg&q=80&fit=crop',
   }
 ];

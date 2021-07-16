@@ -20,7 +20,7 @@ const Grocery = () => {
     return <GroceryBox>
             <GroceryImg src={grocery.image}/>
             <div>{grocery.name}</div>
-            <div>{grocery.price}</div>
+            <div>${grocery.price}</div>
             <AddToCartButton onClick={() => addToCart(grocery)}>Add to Cart</AddToCartButton>
           </GroceryBox>
   });

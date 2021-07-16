@@ -17,7 +17,7 @@ export const Routes = () => {
         <Route exact path="/checkout" component={Checkout} />
         <Route exact path="/calculator" component={RecipeCalculator} />
         <Route exact path="/signin" component={Login} />
-        <Route exact path="/cart" component={Cart} />
+        <Route exact path="/cart" />
       </Switch>
     </div>
   );

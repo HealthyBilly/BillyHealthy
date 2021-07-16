@@ -19,12 +19,15 @@ export const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   padding: 0 1rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
   height: 100%;
   cursor: pointer;
   text-decoration: none !important;
   &.active {
     color: #E39774;
   }
+  border: solid green 1px;
 `;
 
 export const NavMenu = styled.div`
@@ -61,10 +64,13 @@ export const NavBtnLink = styled(Link)`
 export const HealthyLogo = styled.img.attrs({
   src: '../../../assets/HealthyFoodIncLogo.png'
 })`
+  display: flex;
+  align-self: flex-start;
   width: 150px;
   height: 100px;
-  margin-left: 5px;
+  margin-left: -85px;
   margin-top: 5px;
   margin-bottom: 5px;
   object-fit: contain;
+  float: left;
 `;
