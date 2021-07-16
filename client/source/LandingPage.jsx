@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 * {
-  margin: 0;
-  padding: 0;
+  // margin: 0;
+  // padding: 0;
   font-family: droid-sans, sans-serif;
   color: #095256;
 }
@@ -285,7 +286,9 @@ const LandingPage = () => {
           </div>
           <div className="startOptions">
             <button type="button">
-              Get started quick
+              <Link to="/calulator">
+                Get started quick
+              </Link>
             </button>
             <button type="button">
               Browse and shop

@@ -15,7 +15,7 @@ const useRC = () => {
     } else {
       pref = preference.toLowerCase();
     }
-    fetch(`http://localhost:3001/getrecipes/${pref}/${rpw}`,{
+    fetch(`http://54.183.187.231:3001/getrecipes/${pref}/${rpw}`,{
       mode:'cors'
     })
       .then(res=>res.json())

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const GroceryContainer = styled.div`
   font-family: droid-sans, sans-serif;
-  font-color: #095256;
+  color: #095256;
   font-size: 12px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -16,7 +16,7 @@ export const GroceryBox = styled.div`
   grid-template-columns: 1fr;
   justify-items: center;
   background: #FFFFFF;
-  border-radius: 5px;
+  border-radius: 10px;
   padding-bottom: 5px;
   margin: 20px;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);

@@ -3,14 +3,16 @@ import styled from "styled-components";
 const Styles = {
   Container: styled.div`
     color: #095256;
-    width:100%;
-    background-color: #c4ebc8;
+    width:96%;
+    background-color: #D4E7D6;
     padding: 3%;
     display:flex;
     justify-content:center;
     align-content:center;
     margin: -1%;
     margin-top:1%;
+    font-family: droid-sans, sans-serif;
+
   `,
   Row: styled.div`
     width:100%;

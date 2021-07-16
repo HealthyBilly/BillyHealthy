@@ -19,12 +19,12 @@ const Navbar = () => {
   const [isModalOpen, setModalIsOpen] = useState(false);
   return (
       <Nav>
-        <HealthyLogo />
+        <NavLink to='/home'><HealthyLogo /></NavLink>
         <NavMenu>
+          {/* <NavLink to='/register'>Get Started</NavLink> */}
           <NavLink to='/market'>Market</NavLink>
           <NavLink to='/calculator'>Recipe Calculator</NavLink>
           <NavLink to='/farmers'>Meet the Farmers</NavLink>
-          <NavLink to='/register'>Get Started</NavLink>
           <NavLink to='/checkout'>Checkout</NavLink>
           <NavLink
             to='/market'
