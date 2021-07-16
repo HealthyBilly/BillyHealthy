@@ -38,9 +38,9 @@ command to run if program contains helper info
 
 Contributors names and contact info
 
-Chhuong Le
-Hollin Wakefield
-Jenn Ngai
-Kenneth Wang
-Steven Lam
-Susan Ke
+* Chhuong Le
+* Hollin Wakefield
+* Jenn Ngai
+* Kenneth Wang
+* Steven Lam
+* Susan Ke
