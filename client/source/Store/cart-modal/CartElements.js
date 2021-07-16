@@ -69,4 +69,7 @@ export const CheckoutButton = styled.button`
 export const CloseIconStyle = styled.img`
   border: none;
   float: right;
+  &:hover {
+    cursor: pointer;
+  }
 `;
