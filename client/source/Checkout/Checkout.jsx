@@ -42,10 +42,10 @@ const OuterContainer = styled.div`
   console.log(itemArr);
   let price = 0;
   for (let i = 0; i < itemArr.length; i++) {
-    price += Number(itemArr[i].price); // YAAATAAAAH
+    price += itemArr[i].price;
   };
 
-  console.log(price);
+  price = Number.parseFloat(price).toFixed(2);
 
   // map cart data into review item card
   let items = dummyData[0].cart.items.map((element) => (
@@ -108,7 +108,7 @@ const Checkout = () => {
       <ReviewItemsContainer>
         <h3 className="heading">Review Items: </h3>
         {items}
-        <div className="totPrice">Total: {price}</div>
+        <div className="totPrice">Total: ${price}</div>
       </ReviewItemsContainer>
       {/* TODO: After clicking purchase
           1. Modal thanking the customer

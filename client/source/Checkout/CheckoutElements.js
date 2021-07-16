@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
-  height: 100vh;
+  min-height: 100%;
   display: grid;
   grid-gap: 10px;
   margin-left: 15%;
@@ -75,7 +75,6 @@ export const ReviewItemsContainer = styled.div`
   }
   .totPrice {
     background-color: rgba(197, 212, 212, 0.5);
-    height: 100%;
     padding-right: 18%;
     text-align: right;
   }
