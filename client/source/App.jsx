@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Styles from "./SharedComponents.jsx";
 import Farmers from "./meet-farmers/Farmers.jsx";
+import Footer from "./Footer.jsx";
 
 const App = (props) => {
-  // const SmallButton = Styles.smallButton;
-  // return (
-  //   <div>
-  //     <SmallButton>Small button</SmallButton>
-  //     <img src="./assets/pngAvocadoTree.jpeg"></img>
-  //   </div>
-  // );
-  return <Farmers />;
+  return (
+    <>
+      <Farmers />
+      <Footer />
+    </>
+  );
 };
+
 export default App;
