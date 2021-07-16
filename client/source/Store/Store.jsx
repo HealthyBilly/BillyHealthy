@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Grocery from './grocery-details/Grocery.jsx';
-import ProductSearchBar from './top-panel/ProductSearchBar.jsx'
+import ProductSearchBar from './top-panel/ProductSearchBar.jsx';
+import ProductPages from './bottom-panel/ProductPages.jsx';
 
 export const GreenContainer = styled.div`
   display: flex;
@@ -16,10 +17,13 @@ export const GreenContainer = styled.div`
 
 const Store = () => {
   return (
+    <>
     <GreenContainer>
       <ProductSearchBar />
       <Grocery />
+      <ProductPages />
     </GreenContainer>
+    </>
   );
 };
 
