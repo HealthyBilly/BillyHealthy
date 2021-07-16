@@ -12,7 +12,7 @@ const DataImageButton = [
   {
     name:'Pescatarian',
     id:3,
-    url:'./assets/Pescatarian.png',
+    url:'./assets/Paleo.png',
   },
   {
     name:'Vegan',
@@ -22,7 +22,7 @@ const DataImageButton = [
   {
     name:'Vegetarian',
     id:5,
-    url:'./assets/Vegetarian.png',
+    url:'./assets/Paleo.png',
   },
   {
     name:'Gluten-Free',
@@ -46,7 +46,7 @@ const DataRecipe = [
     id:1,
     name: 'asd',
     time: 35,
-    tag:[
+    diets:[
       'big brain',
       'steven\'s faver',
     ],
@@ -56,7 +56,7 @@ const DataRecipe = [
     id:2,
     name: 'asda',
     time: 30,
-    tag:[
+    diets:[
       'big brain',
       'susan\'s faver',
     ],
@@ -67,7 +67,7 @@ const DataRecipe = [
     id:3,
     name: 'asd',
     time: 35,
-    tag:[
+    diets:[
       'big brain',
       'steven\'s faver',
     ],
@@ -77,7 +77,7 @@ const DataRecipe = [
     id:4,
     name: 'asda',
     time: 30,
-    tag:[
+    diets:[
       'big brain',
       'susan\'s faver',
     ],
@@ -88,7 +88,7 @@ const DataRecipe = [
     id:5,
     name: 'asd',
     time: 35,
-    tag:[
+    diets:[
       'big brain',
       'steven\'s faver',
     ],
@@ -98,12 +98,12 @@ const DataRecipe = [
     id:6,
     name: 'asda',
     time: 30,
-    tag:[
+    diets:[
       'big brain',
       'susan\'s faver',
     ],
     description:'asdasdsadsadasdasdasdsaas',
-    url:'./assets/whole_30.png',
+    picture_url:'./assets/whole_30.png',
   }]
 module.exports={
   DataImageButton,

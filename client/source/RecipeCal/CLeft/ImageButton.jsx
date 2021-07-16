@@ -6,6 +6,7 @@ const button = {
   backgroundColor: 'white',
   margin: '5%',
   border:'1px solid #095256',
+  overflow:'hidden',
   borderRadius: '5px',
   boxShadow: '0px 2px 6px 0px rgba(0, 0, 0, 0.3)',
 }

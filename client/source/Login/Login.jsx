@@ -8,7 +8,7 @@ import getFirebase from '../firebase/firebaseIndex.js';
 
 
 const Container = styled.div`
-  width: 40%;
+  width: 50%;
   height: 100%;
   padding-left:30%;
   padding-right:30%;
@@ -23,6 +23,9 @@ const Container = styled.div`
 const LoginContainer = styled.div`
   display: flex;
   width: 100%;
+  height: 400px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
   margin-top: 25%;
   margin-bottom: 30%;
   background-color: white;

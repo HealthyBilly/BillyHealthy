@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 * {
-  margin: 0;
-  padding: 0;
+  // margin: 0;
+  // padding: 0;
   font-family: droid-sans, sans-serif;
   color: #095256;
 }
@@ -50,8 +51,8 @@ const VerticalContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #D4E7D6;
-  min-width: 100vw;
-  min-height: 100vh;
+  overflow: hidden;
+  width: 100%;
 `;
 
 const AvocadoIntro = styled.div`
@@ -61,7 +62,7 @@ const AvocadoIntro = styled.div`
   position: relative;
   background-image: url("./assets/pngAvocadoTree.jpeg");
   background-size: cover;
-  height: 60vh;
+  height: 600px;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
 
   .text {
@@ -107,7 +108,7 @@ const GroceryShop = styled.div`
   display: flex;
   flex-direction: row;
   min-width: 100vw;
-  height: 60vh;
+  height: 500px;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
 
   background-color: #F5D5DF;
@@ -141,7 +142,7 @@ const FarmerSection = styled.div`
   display: flex;
   flex-direction: row;
   min-width: 100vw;
-  height: 60vh;
+  height: 500px;
   background-color: #F5D5DF;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
 
@@ -206,7 +207,7 @@ const PersonalizationSection = styled.div`
   position: relative;
   flex-direction: ${(props) => (props.column ? 'column' : 'row')};
   width: 100%;
-  height: 60vh;
+  height: 500px;
   background-color: #FEDCAC;
   justify-content: center;
   align-items: center;
@@ -285,7 +286,9 @@ const LandingPage = () => {
           </div>
           <div className="startOptions">
             <button type="button">
-              Get started quick
+              <Link to="/calulator">
+                Get started quick
+              </Link>
             </button>
             <button type="button">
               Browse and shop

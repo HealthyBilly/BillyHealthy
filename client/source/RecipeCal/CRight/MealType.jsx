@@ -46,26 +46,31 @@ const bottomContainer = {
   borderRadius:'5px',
 }
 const MealType = (props) => {
-  const { preference, nop, rpw } =props;
-  const price = 4.5;
-  const discount = 0.2;
-  const afterDiscount = price * ( 1 - discount);
+  const { preference, nop, rpw, list, discount} =props;
+  let price;
+  if(list.length > 0){
+    const listarray = list.map(i=>Number(i.price));
+    price = listarray.reduce((a,b)=>a+b);
+  } else {
+    price = 4;
+  }
+  const afterDiscount = Math.floor(price * ( (100 - discount) / 100 ) * 100)/100;
 
   const ship = 10;
   const afterShipping = 0;
 
-  const total = nop * rpw * afterDiscount + afterShipping;
+  const total = Math.floor(nop * rpw * afterDiscount * 100 + afterShipping * 100) /100;
   return (
     <div style={Container}>
       <div style={topContainer}>
         {preference ? <h3>{preference}</h3> : <h3>Meal Type</h3>}
-        {rpw || nop? <h3>{`${rpw} meals for ${nop} people per week`}</h3>: null}
+        {rpw && nop? <h3>{`${rpw} meals for ${nop} people per week`}</h3>: null}
       </div>
       {rpw && nop ?
         <>
         <div style={textContainer}>
           <h3>Box price</h3>
-          <h3>{`$ ${nop*rpw*price}`}</h3>
+          <h3>{`$ ${Math.floor(price/rpw*100)/100}`}</h3>
         </div>
         <div style={textContainer}>
           <h3>Price per serving</h3>

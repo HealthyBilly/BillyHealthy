@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const GroceryContainer = styled.div`
   font-family: droid-sans, sans-serif;
-  font-color: #095256;
+  color: #095256;
   font-size: 12px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-left: 15%;
-  margin-right: 10%;
+  margin-right: 15%;
   margin-top: 3%;
 `;
 
@@ -16,10 +16,9 @@ export const GroceryBox = styled.div`
   grid-template-columns: 1fr;
   justify-items: center;
   background: #FFFFFF;
-  height: 250px;
-  width: 180px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  padding-bottom: 5px;
+  margin: 20px;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
 `;
 

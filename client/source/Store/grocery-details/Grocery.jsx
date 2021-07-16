@@ -7,15 +7,21 @@ import {
   AddToCartButton
 } from './GroceryElements.js';
 import { groceryDummyData } from '../GroceryDummyData.js';
+import { useDispatchCart } from '../cart-modal/Cart.js';
 
 const Grocery = () => {
-  console.log('dummyData', groceryDummyData)
+  const dispatch = useDispatchCart();
+
+  const addToCart = (item) => {
+    dispatch({ type: "ADD", item });
+  };
+
   let groceries = groceryDummyData.map((grocery) => {
     return <GroceryBox>
             <GroceryImg src={grocery.image}/>
             <div>{grocery.name}</div>
-            <div>{grocery.price}</div>
-            <AddToCartButton>Add to Cart</AddToCartButton>
+            <div>${grocery.price}</div>
+            <AddToCartButton onClick={() => addToCart(grocery)}>Add to Cart</AddToCartButton>
           </GroceryBox>
   });
 
