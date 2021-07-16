@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import { RCContext } from '../RecipeCalculator.jsx';
 
@@ -34,12 +35,21 @@ const button = {
   cursor: 'pointer',
 }
 
+const link = {
+  fontSize: '20px',
+  color:'black',
+  textDecorationLine: 'none',
+}
+
 const CRight = () => {
   // const { Container } = Styles
   const NoPList = [1,2,4];
   const RPWList = [2,3,4,5,6];
-  const { nop, setNop, rpw, setRpw, preference,obj } = useContext(RCContext);
+  const { nop, setNop, rpw, setRpw, preference,obj, list } = useContext(RCContext);
 
+  // const handleClick = () => {
+  //   <Link to="/checkout"></Link>
+  // }
   return(
     <div style={Container}>
       <h2 style={title}>Customize your plan</h2>
@@ -55,9 +65,11 @@ const CRight = () => {
         func={setRpw}
         clicked={rpw}
       />
-      <MealType preference={preference} nop={nop} rpw={rpw} />
+      <MealType preference={preference} nop={nop} rpw={rpw} list={list} discount={20}/>
       <div style={{display:'flex', justifyContent:'center'}}>
-         <button style={button}>Select this plan</button>
+         <button style={button} >
+           <Link style={link} to="/checkout">Select this plan</Link>
+        </button>
       </div>
 
     </div>
