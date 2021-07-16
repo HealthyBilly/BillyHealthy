@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Styles from "./SharedComponents.jsx";
-import Farmers from "./meet-farmers/Farmers.jsx";
-import Footer from "./Footer.jsx";
+import Navbar from "./Navigation/Navbar.jsx";
+import LandingPage from "./LandingPage.jsx";
 
 const App = (props) => {
+  const SmallButton = Styles.smallButton;
+
   return (
     <>
-      <Farmers />
-      <Footer />
+      <Navbar />
+      <SmallButton>Small button</SmallButton>
+      <img src="./assets/pngAvocadoTree.jpeg" />
     </>
   );
 };
