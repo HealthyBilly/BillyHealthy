@@ -13,8 +13,8 @@ Table of contents
   * [Dependencies](#Dependencies)
   * [Installing](#Installing)
   * [Executing Program](#Executing-Program)
-  * [Related Projects] (#Related Projects)
-  * [Authors] (#Authors)
+  * [Related Projects](#Related-Projects)
+  * [Authors](#Authors)
 <!--te-->
 
 ## Getting Started
