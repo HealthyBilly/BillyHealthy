@@ -40,7 +40,7 @@ npm run react-dev
 * Will start up the server using nodemon service
 
 ## Related Projects
- *https://github.com/HealthyBilly/RecipesAPI
+ * https://github.com/HealthyBilly/RecipesAPI
 
 ## Authors
 
