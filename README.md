@@ -10,9 +10,9 @@ Table of contents
 ==================
 
 <!--ts-->
-  *[Dependencies](#Dependencies)
-  *[Installing](#Installing)
-  *[Executing Program](#Executing-Program)
+  * [Dependencies](#Dependencies)
+  * [Installing](#Installing)
+  * [Executing Program](#Executing-Program)
 <!--te-->
 
 ## Getting Started
