@@ -11,7 +11,7 @@ export const Container = styled.div`
     'ShipContainer        ShipContainer'
     'ReviewItemsContainer ReviewItemsContainer'
     'Footer               Footer';
-  grid-template-rows: 3fr 5fr 2fr;
+  grid-template-rows: 3fr 5fr 3fr;
 `;
 
 export const ShipContainer = styled.div`
@@ -58,7 +58,7 @@ export const ReviewItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
   background: white;
-  max-height: 32vh;
+  max-height: 86%;
   margin-right: 30px;
   margin-left: 30px;
   border-radius: 20px;

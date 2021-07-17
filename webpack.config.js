@@ -8,8 +8,8 @@ module.exports = {
     filename: "bundle.js",
     path: PUBLIC_DIR,
   },
-  devtool: "eval-source-map",
-  mode: "development",
+  // devtool: "eval-source-map",
+  mode: "production",
   module: {
     rules: [
       {

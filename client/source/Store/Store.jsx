@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import styled from 'styled-components';
 import Grocery from './grocery-details/Grocery.jsx';
 import ProductSearchBar from './top-panel/ProductSearchBar.jsx';
@@ -15,12 +15,16 @@ export const GreenContainer = styled.div`
   margin-top: 10px;
 `;
 
+const GroceryComponent = React.lazy(()=>import('./grocery-details/Grocery.jsx'));
+
 const Store = () => {
   return (
     <>
     <GreenContainer>
       <ProductSearchBar />
-      <Grocery />
+      <Suspense fallback={<div>Loading...</div>}>
+        <GroceryComponent />
+      </Suspense>
       <ProductPages />
     </GreenContainer>
     </>

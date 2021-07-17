@@ -30,6 +30,11 @@ const dummyData = [
           image: 'https://spoonacular.com/cdn/ingredients_500x500/goat-cheese.jpg',
           quantity: 1,
         },
+        {
+          name: 'Cinnamon',
+          price: 4.89,
+          image: 'https://spoonacular.com/cdn/ingredients_500x500/cinnamon.jpg',
+        },
       ]
     }
   }

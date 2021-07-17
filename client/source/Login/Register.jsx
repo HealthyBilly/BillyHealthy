@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
-import Modal from './Modal.jsx';
+// import Modal from './Modal.jsx';
 import { NavLink as Link } from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import getFirebase from '../firebase/firebaseIndex.js';

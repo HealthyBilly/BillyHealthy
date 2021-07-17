@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import {
   Container,
@@ -71,6 +71,11 @@ const OuterContainer = styled.div`
     as well as a summary of the delivery information
 */
 const Checkout = () => {
+ const [name, setName] = useState(dummyData[0].name);
+ const [street, setStree] = useState(dummyData[0].street);
+ const [city, setCity] = useState(dummyData[0].city);
+ const [zip, setZip] = useState(dummyData[0].zipcode);
+
  return (
    <OuterContainer>
      <GlobalStyle />

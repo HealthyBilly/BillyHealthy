@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 
@@ -272,6 +272,7 @@ const dummyImages = ['https://therecipecritic.com/wp-content/uploads/2017/06/0C4
 const mapButtons = (buttonName, index) => <button key={index} type="button" className="prefs">{buttonName}</button>;
 const mapImages = (image, index) => <img alt="food" key={index} src={image} className="imgs" />;
 
+
 const LandingPage = () => {
   const word = 'Convenience';
   let history = useHistory();
@@ -316,7 +317,7 @@ const LandingPage = () => {
           <img className="groceryImage" alt="Groceries" src="./assets/groceries.jpeg" />
         </GroceryShop>
         <Padding />
-        <PersonalizationSection column>
+        <PersonalizationSection loading="lazy" column>
           <h2>
             Shop by over 50 diets and values
           </h2>
@@ -334,7 +335,7 @@ const LandingPage = () => {
           </button>
         </PersonalizationSection>
         <Padding />
-        <FarmerSection>
+        <FarmerSection loading="lazy" >
           <Description>
             <h2>
               Directly from your local farmers

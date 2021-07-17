@@ -15,6 +15,7 @@ export const Routes = () => {
     <div>
       <Navbar />
       <Switch>
+        <Route exact path="/" component={LandingPage} />
         <Route exact path="/home" component={LandingPage} />
         <Route exact path="/market" component={Store} />
         <Route exact path="/checkout" component={Checkout} />
