@@ -4,7 +4,16 @@ Meal selector based on diets
 
 ## Description
 
-Application aimed at providing healthy meal choices for those that have little to no time for their own meal preperations.
+Application aimed at providing healthy meal choices for those that have little to no time for their own meal preparations. Users have access to a portal to visit websites of smaller/local farms.
+
+Table of contents
+==================
+
+<!--ts-->
+  *[Dependencies](#Dependencies)
+  *[Installing](#Installing)
+  *[Executing Program](#Executing-Program)
+<!--te-->
 
 ## Getting Started
 
@@ -23,24 +32,21 @@ Application aimed at providing healthy meal choices for those that have little t
 
 ```
 npm start
+npm run react-dev
 ```
 
 * Will start up the server using nodemon service
 
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+## Related Projects
+ *https://github.com/HealthyBilly/RecipesAPI
 
 ## Authors
 
 Contributors names and contact info
 
-* Chhuong Le
-* Hollin Wakefield
-* Jenn Ngai
-* Kenneth Wang
-* Steven Lam
-* Susan Ke
+* Chhuong Le - Architect
+* Hollin Wakefield - Project Manager
+* Jenn Ngai - Product Owner
+* Kenneth Wang - Front End Engineer
+* Steven Lam - Head of UI Design
+* Susan Ke - Architect
