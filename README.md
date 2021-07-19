@@ -1,4 +1,4 @@
-# Health Food Inc.
+# Healthy Food Inc.
 
 Meal selector based on diets
 
