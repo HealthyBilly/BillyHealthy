@@ -40,7 +40,14 @@ npm run react-dev
 * Will start up the server using nodemon service
 
 ## Overview
-![Overview](https://media.giphy.com/media/XuCI3aLFeW2avhh7Zc/giphy.gif)
+#### Login Page
+![Login Page](https://media.giphy.com/media/W3KcgvjON8EyRM1uop/giphy.gif)
+#### Homepage and Market
+![Homepage](https://media.giphy.com/media/XuCI3aLFeW2avhh7Zc/giphy.gif)
+#### Recipe Calculator
+![Recipe Calculator](https://media.giphy.com/media/Z0xiDBsaiVEQ2i9QRe/giphy.gif)
+#### Meet the farmers and Checkout
+![Meet the farmers and Checkout](https://media.giphy.com/media/K5Bva9aAJrTSo84wtF/giphy.gif)
 
 ## Related Projects
  * https://github.com/HealthyBilly/RecipesAPI
