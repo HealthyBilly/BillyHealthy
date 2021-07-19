@@ -39,6 +39,9 @@ npm run react-dev
 
 * Will start up the server using nodemon service
 
+## Overview
+![Overview](https://media.giphy.com/media/XuCI3aLFeW2avhh7Zc/giphy.gif)
+
 ## Related Projects
  * https://github.com/HealthyBilly/RecipesAPI
 
